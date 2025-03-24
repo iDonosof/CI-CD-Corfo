@@ -9,7 +9,7 @@ pipeline {
                 script {
                     try {
                         echo 'Instalando dependencias...'
-                        bash 'npm install'
+                        bat 'npm install'
                     } catch (Exception e) {
                         error('❌ Error en la etapa de Build ' + e.message)
                     }
@@ -21,7 +21,7 @@ pipeline {
                 script {
                     try {
                         echo 'Ejecutando pruebas...'
-                        bash 'npm run test'
+                        bat 'npm run test'
                     } catch (Exception e) {
                         error('❌ Error en la etapa de Test ' + e.message)
                     }
@@ -33,7 +33,7 @@ pipeline {
                 script {
                     try {
                         echo 'Desplegando aplicación...'
-                        bash 'npm run start'
+                        bat 'npm run start'
                     } catch (Exception e) {
                         error('❌ Error en la etapa de Deploy ' + e.message)
                     }
