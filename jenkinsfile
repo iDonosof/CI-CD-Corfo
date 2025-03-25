@@ -33,7 +33,7 @@ pipeline {
                 script {
                     try {
                         echo 'Desplegando aplicación...'
-                        sh 'npm run start'
+                        sh 'npm run start &'
                     } catch (Exception e) {
                         error('❌ Error en la etapa de Deploy ' + e.message)
                     }
