@@ -9,8 +9,7 @@ pipeline {
                 script {
                     try {
                         echo 'Instalando dependencias...'
-                        sh '/bin/bash'
-                        sh 'npm install'
+                        sh '/var/jenkins_home/.nvm/versions/node/v22.14.0/bin/npm install'
                     } catch (Exception e) {
                         error('❌ Error en la etapa de Build ' + e.message)
                     }
