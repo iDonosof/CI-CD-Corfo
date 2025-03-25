@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment {
-        NODE_VERSION = '22'
+        NODE_VERSION = '18'
     }
     stages {
         stage('Build') {
@@ -9,7 +9,7 @@ pipeline {
                 script {
                     try {
                         echo 'Instalando dependencias...'
-                        sh '/var/jenkins_home/.nvm/versions/node/v22.14.0/bin/npm install'
+                        sh 'npm install'
                     } catch (Exception e) {
                         error('❌ Error en la etapa de Build ' + e.message)
                     }
