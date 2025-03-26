@@ -1,7 +1,8 @@
 pipeline {
     agent any
     environment {
-        NODE_VERSION = '18'
+        DOCKER_IMAGE_NAME = 'mi-aplicacion'
+        DOCKER_IMAGE_TAG = "${env.BUILD_NUMBER}"
     }
     stages {
         stage('Build') {
@@ -20,11 +21,11 @@ pipeline {
                 }
             }
         }
-        stage('Deploy') {
+        stage('Build Docker Image') {
             steps {
                 script {
-                    echo 'Desplegando aplicación...'
-                    sh 'npm run start &'
+                    echo 'Construyendo imagen Docker...'
+                    sh "docker build -t ${DOCKER_IMAGE_NAME}:${DOCKER_IMAGE_TAG} ."
                 }
             }
         }
